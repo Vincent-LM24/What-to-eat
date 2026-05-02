@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta name="theme-color" content="#ff8c42" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="今晚吃什么" />
+    <link rel="apple-touch-icon" href="./icon-180.png" />
+    <link rel="icon" href="./icon-192.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>今晚吃什么</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">选择困难症终结者</p>
+        <h1>今晚吃什么？</h1>
+        <p class="lede">勾选想考虑的类别，或加上自己的候选。点一下，让宇宙帮你决定。</p>
+      </header>
+
+      <section class="panel categories-panel" aria-labelledby="cat-title">
+        <h2 id="cat-title">候选类别</h2>
+        <div id="category-toggles" class="chip-grid"></div>
+      </section>
+
+      <section class="panel custom-panel" aria-labelledby="custom-title">
+        <h2 id="custom-title">我的加菜</h2>
+        <form id="add-form" class="add-row">
+          <label class="sr-only" for="custom-input">添加一道菜或店名</label>
+          <input
+            id="custom-input"
+            type="text"
+            maxlength="40"
+            placeholder="例如：楼下那家麻辣烫"
+            autocomplete="off"
+          />
+          <button type="submit" class="btn secondary">加入候选</button>
+        </form>
+        <ul id="custom-list" class="custom-list"></ul>
+      </section>
+
+      <section class="decide-panel">
+        <button type="button" id="decide-btn" class="btn primary decide-btn">
+          <span class="decide-label">帮我决定</span>
+        </button>
+        <p id="pool-hint" class="pool-hint"></p>
+        <div id="result" class="result" role="status" aria-live="polite"></div>
+      </section>
+
+      <footer class="foot">
+        <button type="button" id="reset-btn" class="btn ghost">恢复默认类别</button>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
